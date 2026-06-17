@@ -64,9 +64,15 @@
         const params = new URLSearchParams(window.location.search || "");
         const mainKey = String(params.get(ADMIN_KEY_PARAM) || "").trim();
         const legacyKey = String(params.get(LEGACY_ADMIN_KEY_PARAM) || "").trim();
+        const eventIdParam = String(
+            window.config
+            && window.config.event
+            && window.config.event.eventIdParam
+            || "id"
+        ).trim() || "id";
         return {
             adminKey: mainKey || legacyKey,
-            eventId: String(params.get("eventId") || "").trim()
+            eventId: String(params.get(eventIdParam) || params.get("eventId") || "").trim()
         };
     }
 
@@ -82,7 +88,7 @@
             window.config
             && window.config.event
             && window.config.event.defaultEventId
-            || "misxv-anika-fernanda-2026"
+            || "misxv-mia-valentina-2026"
         ).trim();
 
         return queryEventId || defaultEventId;

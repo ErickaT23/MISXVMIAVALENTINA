@@ -1,27 +1,27 @@
 :root {
-    --bg: #f2e8dc;
-    --paper: #fffcf8;
-    --paper-strong: #fffdf9;
-    --rose: #d9b6ad;
-    --rose-dark: #8e6c61;
-    --rose-deep: #6d574b;
-    --beige: #e8d7c4;
-    --gold-1: #e8d7c4;
-    --gold-2: #b8925b;
-    --gold-3: #8b6f46;
-    --ink: #4e4138;
-    --ink-soft: #7b6a61;
-    --line: rgba(184, 146, 91, 0.26);
-    --line-soft: rgba(184, 146, 91, 0.15);
-    --shadow-card: 0 16px 36px rgba(94, 74, 64, 0.13);
-    --shadow-soft: 0 8px 24px rgba(94, 74, 64, 0.1);
+    --bg: #fdf6fa;
+    --paper: #ffffff;
+    --paper-strong: #fffafd;
+    --rose: #f8cad4;
+    --rose-dark: #9f4f66;
+    --rose-deep: #7d3d52;
+    --beige: #f9d6e0;
+    --gold-1: #cbb8e8;
+    --gold-2: #e0d3f4;
+    --gold-3: #9f4f66;
+    --ink: #4a2c4a;
+    --ink-soft: #8f6f87;
+    --line: rgba(217, 143, 157, 0.26);
+    --line-soft: rgba(204, 177, 254, 0.18);
+    --shadow-card: 0 16px 36px rgba(204, 177, 254, 0.16);
+    --shadow-soft: 0 8px 24px rgba(217, 143, 157, 0.12);
     --radius-lg: 24px;
     --radius-md: 18px;
     --radius-sm: 14px;
 
-    --font-title: "Pinyon Script", cursive;
-    --font-subtitle: "Cinzel", serif;
-    --font-body: "Playfair Display", serif;
+    --font-title: "Great Vibes", cursive;
+    --font-subtitle: "Cormorant Garamond", serif;
+    --font-body: "Outfit", sans-serif;
 }
 
 * {
@@ -45,9 +45,9 @@ body {
     font-family: var(--font-body);
     color: var(--ink);
     background:
-        radial-gradient(circle at 10% -8%, rgba(217, 182, 173, 0.3) 0%, rgba(242, 232, 220, 0) 42%),
-        radial-gradient(circle at 100% 0%, rgba(184, 146, 91, 0.2) 0%, rgba(242, 232, 220, 0) 36%),
-        linear-gradient(180deg, #fffdf9 0%, #f2e8dc 100%);
+        radial-gradient(circle at 10% -8%, rgba(248, 202, 212, 0.48) 0%, rgba(253, 246, 250, 0) 42%),
+        radial-gradient(circle at 100% 0%, rgba(204, 177, 254, 0.25) 0%, rgba(253, 246, 250, 0) 36%),
+        linear-gradient(180deg, #fffafd 0%, #fdf6fa 100%);
 }
 
 .dashboard-shell {
@@ -77,7 +77,7 @@ body {
     border-radius: var(--radius-lg);
     border: 1px solid var(--line);
     background:
-        linear-gradient(135deg, rgba(255, 251, 247, 0.96) 0%, rgba(239, 226, 211, 0.74) 100%);
+        linear-gradient(135deg, rgba(255, 250, 253, 0.96) 0%, rgba(234, 214, 242, 0.74) 100%);
     box-shadow: var(--shadow-card);
 }
 
@@ -88,7 +88,7 @@ body {
     right: 2.3rem;
     bottom: 1.2rem;
     height: 1px;
-    background: linear-gradient(90deg, rgba(214, 194, 122, 0.7), rgba(127, 74, 87, 0));
+    background: linear-gradient(90deg, rgba(217, 143, 157, 0.7), rgba(204, 177, 254, 0));
 }
 
 .dashboard-kicker {
@@ -106,7 +106,7 @@ body {
     font-size: clamp(3.1rem, 7.5vw, 5rem);
     font-weight: 400;
     line-height: 0.9;
-    background: linear-gradient(120deg, #b8925b 0%, #d9b6ad 25%, #8e6c61 50%, #d9b6ad 75%, #b8925b 100%);
+    background: linear-gradient(120deg, #cbb8e8 0%, #e0d3f4 25%, #f2b8c6 50%, #e0d3f4 75%, #cbb8e8 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -139,7 +139,7 @@ body {
     padding: 1.05rem 1rem;
     border-radius: var(--radius-md);
     border: 1px solid var(--line-soft);
-    background: linear-gradient(165deg, rgba(255, 253, 251, 0.95), rgba(247, 238, 232, 0.85));
+    background: linear-gradient(165deg, rgba(255, 250, 253, 0.96), rgba(248, 202, 212, 0.16));
     box-shadow: var(--shadow-soft);
     transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
 }
@@ -152,18 +152,18 @@ body {
     width: 100%;
     height: 2px;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
-    background: linear-gradient(90deg, rgba(214, 194, 122, 0.75), rgba(127, 74, 87, 0.42));
+    background: linear-gradient(90deg, rgba(217, 143, 157, 0.75), rgba(204, 177, 254, 0.42));
 }
 
 .summary-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(127, 74, 87, 0.28);
-    box-shadow: 0 14px 30px rgba(101, 70, 76, 0.16);
+    border-color: rgba(217, 143, 157, 0.28);
+    box-shadow: 0 14px 30px rgba(204, 177, 254, 0.2);
 }
 
 .summary-card-highlight {
-    background: linear-gradient(145deg, rgba(184, 146, 91, 0.98) 0%, rgba(139, 111, 70, 0.98) 100%);
-    border-color: rgba(184, 146, 91, 0.42);
+    background: linear-gradient(145deg, rgba(159, 79, 102, 0.94) 0%, rgba(203, 184, 232, 0.94) 100%);
+    border-color: rgba(217, 143, 157, 0.42);
 }
 
 .summary-card-highlight::before {

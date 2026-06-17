@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin RSVP</title>
+    <title>Panel Admin RSVP | Mía Valentina</title>
     <style>
         :root {
-            --bg: #ffffff;
+            --bg: #fdf6fa;
             --surface: #ffffff;
-            --surface-soft: #fbf9fc;
-            --text: #111111;
-            --text-soft: #6a6470;
-            --line: #ece7f1;
-            --line-strong: #ddd3e8;
+            --surface-soft: #fffafd;
+            --text: #4a2c4a;
+            --text-soft: #8f6f87;
+            --line: rgba(217, 143, 157, 0.22);
+            --line-strong: rgba(204, 177, 254, 0.34);
 
-            --brand-purple: #6c2bd9;
-            --brand-orange: #ff7a1a;
-            --brand-rose: #d6a0b5;
-            --brand-mocha: #9b7a67;
+            --brand-purple: #cbb8e8;
+            --brand-orange: #f8cad4;
+            --brand-rose: #f2b8c6;
+            --brand-mocha: #9f4f66;
 
             --danger: #e53935;
             --danger-dark: #c62828;
 
-            --shadow-soft: 0 10px 30px rgba(30, 10, 50, 0.08);
-            --shadow-card: 0 8px 18px rgba(20, 20, 30, 0.06);
+            --shadow-soft: 0 10px 30px rgba(204, 177, 254, 0.16);
+            --shadow-card: 0 8px 18px rgba(217, 143, 157, 0.12);
             --radius-lg: 16px;
             --radius-md: 12px;
             --radius-sm: 9px;
@@ -38,7 +38,7 @@
         body {
             margin: 0;
             font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
+            background: linear-gradient(180deg, #fffafd 0%, var(--bg) 100%);
             color: var(--text);
             line-height: 1.42;
             -webkit-font-smoothing: antialiased;
@@ -61,7 +61,7 @@
         .header {
             padding: 1.4rem 1.4rem 1.1rem;
             border-bottom: 1px solid var(--line);
-            background: linear-gradient(180deg, #ffffff 0%, #fdfbff 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #fffafd 100%);
             text-align: center;
         }
 
@@ -88,8 +88,8 @@
         .subtitle strong {
             color: var(--brand-mocha);
             font-weight: 700;
-            background: #f6efe9;
-            border: 1px solid #e8dbd0;
+            background: #fce6ec;
+            border: 1px solid rgba(217, 143, 157, 0.24);
             border-radius: 999px;
             padding: 0.1rem 0.45rem;
             line-height: 1.2;
@@ -1045,7 +1045,7 @@
         <section id="admin-app" class="panel hidden">
             <header class="header">
                 <h1 class="title">Panel Administrador RSVP</h1>
-                <p class="subtitle">Evento activo: <strong id="active-event-id">--</strong></p>
+                <p class="subtitle">Mía Valentina · Evento activo: <strong id="active-event-id">--</strong></p>
             </header>
 
             <div class="metrics">

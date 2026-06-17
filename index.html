@@ -6,21 +6,23 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>XV Anika Fernanda</title>
+  <title>Mía Valentina | Mis XV 2026</title>
   <meta name="description" content="Celebra conmigo mis XV, te esperamos.">
 
   <!-- Open Graph (WhatsApp, Facebook) -->
-  <meta property="og:title" content="XV Anika Fernanda">
-  <meta property="og:description" content="Celebra conmigo mis XV, te esperamos.">
-  <meta property="og:image" content="https://images.pexels.com/photos/29903645/pexels-photo-29903645.jpeg">
+  <meta property="og:title" content="Mis Quince | Mía Valentina">
+  <meta property="og:description" content="Te invito a celebrar mis quince años. ¡Espero verte pronto!">
+  <meta property="og:image" content="https://i.postimg.cc/VvgMx4G3/XVMV.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="">
   <meta property="og:type" content="website">
 
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XV Anika Fernanda">
-  <meta name="twitter:description" content="Celebra conmigo mis XV, te esperamos.">
-  <meta name="twitter:image" content="https://images.pexels.com/photos/37594085/pexels-photo-37594085.jpeg">
+  <meta name="twitter:title" content="Mis Quince | Mía Valentina">
+  <meta name="twitter:description" content="Te invito a celebrar mis quince años. ¡Espero verte pronto!">
+  <meta name="twitter:image" content="https://i.postimg.cc/VvgMx4G3/XVMV.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,227 +33,236 @@
 <body class="portada-lock">
   <section id="portada" class="portada" aria-label="Portada">
     <div class="portada-fondo"></div>
-    <div id="portada-envelope-trigger" class="portada-contenido" role="presentation">
-      <div class="portada-center">
-        <h1 class="portada-main-name portada-nombre">
-          <span>Anika</span>
-          <span>Fernanda</span>
-        </h1>
-        <button id="btn-abrir" type="button">Abrir invitación</button>
+    <div class="portada-contenido">
+      <p class="portada-subtitulo">Mis Quince</p>
+      <h1 class="portada-nombre">Mía Valentina</h1>
+      <div class="portada-sobre-wrapper">
+        <img
+          id="btn-abrir"
+          src="images/sobre-inicial.svg"
+          alt="Sobre de invitación"
+          class="portada-sobre"
+          role="button"
+          tabindex="0"
+        >
       </div>
+      <p class="portada-hint">Haz click en el sobre para abrir la invitación</p>
     </div>
   </section>
 
   <div id="invitacion" class="invitacion-shell" aria-live="polite">
-    <aside id="side-menu" class="side-menu section" aria-label="Navegación">
-      <nav>
-        <ul>
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#frase">Frase</a></li>
-          <li><a href="#rsvp-section">RSVP</a></li>
-          <li><a href="#contador">Cuenta regresiva</a></li>
-          <li><a href="#padres">Padres</a></li>
-          <li><a href="#itinerario">Itinerario</a></li>
-          <li><a href="#eventos">Evento</a></li>
-          <li><a href="#dresscode">Dress code</a></li>
-          <li><a href="#regalos">Regalos</a></li>
-          <li><a href="#galeria">Galería</a></li>
-          <li><a href="#fotos">Sube fotos</a></li>
-          <li><a href="#deseos">Buenos deseos</a></li>
-        </ul>
-      </nav>
-    </aside>
-
+    <canvas id="sparkles-canvas"></canvas>
     <main class="main-content">
-      <section id="hero" class="section hero zoom-in-element">
-        <div class="hero-overlay"></div>
-        <img class="hero-image" src="images/fotos/V2.jpg" alt="Anika Fernanda" data-parallax data-parallax-speed="0.045" data-parallax-max="28">
-        <div class="hero-content fade-in-element">
-          <h2 class="hero-title zoom-in-element">Anika Fernanda</h2>
-        </div>
-        <a id="scroll-hint" href="#frase" aria-label="Deslizar hacia abajo">Desliza hacia abajo</a>
-      </section>
-
-      <section id="frase" class="section frase fade-in-element">
-        <div class="frase-content">
-          <img class="frase-corona" src="images/CORONA.png" alt="Corona decorativa">
-          <p>¡Llegó el momento de celebrar! Te espero para compartir una noche llena de magia, música y alegría por mis 15 años.</p>
+      <section id="hero" class="section hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <p class="hero-subtitulo">Mis Quince</p>
+          <h2 class="hero-nombre">Mía Valentina</h2>
+          <div class="hero-divider"></div>
+          <p id="nombre-invitado" class="hero-invitado-nombre">Invitado Especial</p>
+          <p class="hero-invitado-pases">Hemos reservado para ti <span id="numero-lugares">2</span> lugares especiales</p>
+          <p class="hero-invitado-frase">Para comodidad de todos nuestros invitados, por favor respetar los nombres y la cantidad de personas asignadas en este pase.</p>
         </div>
       </section>
 
-      <section id="separador-sobre" class="section separador-sobre fade-in-element" aria-label="Separador">
-        <img src="images/SOBRE.png" alt="Sobre decorativo" data-parallax data-parallax-speed="0.028" data-parallax-max="16">
-      </section>
-
-      <section id="rsvp-section" class="section rsvp slide-left fade-in-element">
-        <div class="section-head">
-          <h3>¡Es un placer invitarte!</h3>
-        </div>
-        <div class="rsvp-card">
-          <p id="nombre-invitado" class="invitado-nombre">Invitado Especial</p>
-          <p class="invitado-mensaje">Eres muy especial para nosotros</p>
-          <h4 class="invitado-lugares">Hemos reservado para ti <span id="numero-lugares">2</span> lugares especiales.</h4>
-
-          <p class="rsvp-intro">Confirma tu asistencia para brindarte una experiencia inolvidable.</p>
-          <form id="rsvp-form" novalidate>
-            <input id="rsvp-name" type="hidden" name="rsvp-name">
-            <button id="rsvp-submit" type="submit">Confirmar asistencia</button>
-          </form>
-
-          <div id="rsvp-success" style="display:none;">
-            <p id="rsvp-final-message"></p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contador" class="section countdown zoom-in-element">
+      <section id="contador" class="section countdown">
         <div class="countdown-inner">
-          <h3>12 de diciembre, 2026</h3>
+
+          <h2 class="countdown-title">¡Solo Faltan!</h2>
+
           <div class="count-grid">
-            <div><span id="days">00</span><small>Días</small></div>
-            <div><span id="hours">00</span><small>Horas</small></div>
-            <div><span id="minutes">00</span><small>Minutos</small></div>
-            <div><span id="seconds">00</span><small>Segundos</small></div>
+            <div class="count-item">
+              <span id="days">00</span>
+              <small>Días</small>
+            </div>
+            <div class="count-item">
+              <span id="hours">00</span>
+              <small>Horas</small>
+            </div>
+            <div class="count-item">
+              <span id="minutes">00</span>
+              <small>Minutos</small>
+            </div>
+            <div class="count-item">
+              <span id="seconds">00</span>
+              <small>Segundos</small>
+            </div>
           </div>
-          <a class="btn-soft countdown-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis%20Quince%20Anika%20Fernanda&dates=20261212T170000/20261213T000000&ctz=America/Guatemala&details=Mis%20Quince%20Anika%20Fernanda%20-%2012%20de%20diciembre%2C%202026" target="_blank" rel="noopener">Agregar al calendario</a>
+
+          <p class="countdown-fecha">1 · 08 · 2026</p>
+
+          <a class="btn-calendar" 
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis%20Quince%20M%C3%ADa%20Valentina&dates=20260801T170000/20260802T000000&ctz=America%2FGuatemala&details=Mis%20Quince%20M%C3%ADa%20Valentina%20-%201%20de%20agosto%2C%202026" 
+            target="_blank" 
+            rel="noopener">
+            Agregar al calendario
+          </a>
+
+          <div class="bendicion-divider"></div>
+
+          <h3 class="bendicion-titulo">Con la bendición de Dios y de mis padres</h3>
+
+          <p class="bendicion-oracion">Con gratitud a Dios y con el corazón lleno de alegría, celebramos los quince años de nuestra querida hija. Pedimos al Señor que la acompañe en este nuevo capítulo de su vida, que la llene de bendiciones, sabiduría y amor. Te invitamos a unirte a nosotros en esta celebración especial, dando gracias a Dios por cada paso que ella ha dado y por los sueños que están por venir.</p>
+
         </div>
       </section>
 
-      <section id="agradecimiento" class="section frase fade-in-element">
-        <div class="frase-content">
-          <p>Gracias por ser parte de este momento único.</p>
-        </div>
-      </section>
+      <section id="itinerario" class="section itinerario">
+        <div class="itinerario-inner">
 
-      <section id="padres" class="section padres slide-right fade-in-element">
-        <div class="padres-content">
-          <p class="padres-intro">Con el amor de Dios y la bendición de mis padres</p>
-          <h3>Abelino Cabrera &amp; Brenda de Cabrera</h3>
-        </div>
-      </section>
-
-      <section id="separador-h1" class="section separador-h1 fade-in-element" aria-label="Separador">
-        <img src="images/fotos/V1.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
-      </section>
-
-      <section id="itinerario" class="section itinerario fade-in-element">
-        <div class="section-head">
-          <h3>Itinerario</h3>
-        </div>
-        <div class="timeline">
-          <article><img class="timeline-icon" src="images/Iconos/CHURCH.svg" alt="Ceremonia"><p class="timeline-hora">5:00 PM</p><h4>Ceremonia</h4></article>
-          <article><img class="timeline-icon" src="images/Iconos/DINNER.svg" alt="Recepción"><p class="timeline-hora">7:00 PM</p><h4>Recepción</h4></article>
-          <article><img class="timeline-icon" src="images/Iconos/CHEERS.svg" alt="Brindis"><p class="timeline-hora">8:00 PM</p><h4>Brindis</h4></article>
-          <article><img class="timeline-icon" src="images/Iconos/PARTY.svg" alt="Fiesta"><p class="timeline-hora">9:00 PM</p><h4>Fiesta</h4></article>
-        </div>
-      </section>
-
-      <section id="eventos" class="section eventos fade-in-element">
-        <div class="section-head">
-        </div>
-        <div class="events-container">
-          <article class="event-card slide-left">
-            <img class="event-emoji" src="images/Iconos/CHURCH.svg" alt="Ceremonia">
-            <h4 class="event-title"><span class="event-inicial">C</span><span class="event-resto">eremonia</span></h4>
-            <p id="ceremonia-nombre" class="event-lugar">Iglesia Catedral</p>
-            <p id="ceremonia-direccion" class="event-direccion">Quetzaltenango</p>
-            <a class="btn-location event-parallax-btn" href="https://maps.app.goo.gl/UR8YG5dqu9fzo5NeA" target="_blank" rel="noopener">Ubicación</a>
+          <article class="evento-card">
+            <img class="evento-icono" src="images/IGLESIA.svg" alt="Ceremonia">
+            <h3 class="evento-titulo">Ceremonia</h3>
+            <p class="evento-lugar">Iglesia Católica San José</p>
+            <p class="evento-ciudad">Morales, Izabal</p>
+            <p class="evento-hora">5:00 pm</p>
+            <a class="btn-location" href="https://maps.google.com/?q=15.476117,-88.828629" target="_blank" rel="noopener">Cómo llegar</a>
           </article>
-          <article class="event-card slide-right">
-            <img class="event-emoji" src="images/Iconos/DINNER.svg" alt="Recepción">
-            <h4 class="event-title"><span class="event-inicial">R</span><span class="event-resto">ecepción</span></h4>
-            <p id="recepcion-nombre" class="event-lugar">Restaurante Don Carlos</p>
-            <p id="recepcion-direccion" class="event-direccion">Circunvalación Salcajá</p>
-            <a class="btn-location event-parallax-btn" href="https://maps.app.goo.gl/AHz7RSJHoNs1GPiV7" target="_blank" rel="noopener">Ubicación</a>
+
+          <div class="itinerario-divider"></div>
+
+          <article class="evento-card">
+            <img class="evento-icono" src="images/RECEPCION.svg" alt="Recepción">
+            <h3 class="evento-titulo">Recepción</h3>
+            <p class="evento-lugar">Salón Palmeras</p>
+            <p class="evento-ciudad">Morales, Izabal</p>
+            <p class="evento-hora">6:30 pm</p>
+            <a class="btn-location" href="https://maps.app.goo.gl/w1bEQT8YfcrjTxfCA" target="_blank" rel="noopener">Cómo llegar</a>
           </article>
+
         </div>
       </section>
 
-      <section id="separador-h1" class="section separador-h1 fade-in-element" aria-label="Separador">
-        <img src="images/fotos/V5.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
-      </section>
+      <section id="dresscode" class="section dresscode">
+        <div class="dresscode-inner">
 
-      <section id="dresscode" class="section dresscode fade-in-element">
-        <div class="dress-card">
-          <h3 class="dress-title">Código de Vestimenta</h3>
-          <div class="dress-icons" aria-hidden="true">
-            <img class="dress-icon" src="images/Iconos/lady.svg" alt="">
-            <img class="dress-icon" src="images/Iconos/groom.svg" alt="">
-          </div>
-          <p class="dress-copy">Formal y elegante; nos hemos reservado el color champán, no olvides abrigarte bien.</p>
-          <h4 class="dress-subtitle">Inspiración</h4>
-          <a class="btn-soft" href="https://es.pinterest.com/search/pins/?q=Outfits%20para%20invitadas%20e%20invitados%20para%20fiesta&rs=typed" target="_blank" rel="noopener">Ir a Pinterest</a>
+          <article class="evento-card">
+            <div class="dress-iconos">
+              <img class="evento-icono" src="images/DRESSCODE.svg" alt="Dama">
+            </div>
+            <h3 class="evento-titulo">Código de Vestimenta</h3>
+            <p class="dress-copy">Formal y elegante. Les pedimos respetar que los colores rosado y morado lila están reservados para la quinceañera.</p>
+            <a class="btn-location" href="https://es.pinterest.com/search/pins/?q=Outfits%20para%20invitadas%20e%20invitados%20para%20fiesta&rs=typed" target="_blank" rel="noopener">Inspiración en Pinterest</a>
+          </article>
+
+          <div class="itinerario-divider"></div>
+
+          <article class="evento-card">
+            <img class="evento-icono" src="images/REGALO.svg" alt="Regalos">
+            <h3 class="evento-titulo">Lluvia de Sobres</h3>
+            <p class="evento-lugar">Un detalle con amor</p>
+            <p class="dress-copy">Tu presencia en este día tan especial es el mejor regalo para mí. Sin embargo, si deseas obsequiarme algo, agradeceré mucho un detalle en efectivo. ¡Gracias por acompañarme a celebrar mis quince años!</p>
+          </article>
+
         </div>
       </section>
 
-      <section id="regalos" class="section regalos fade-in-element">
-        <div class="regalos-card">
-          <img class="regalos-icon" src="images/Iconos/GIFTS.svg" alt="Regalos">
-          <h3 class="regalos-title">Lluvia de Sobres</h3>
-          <p class="regalos-copy">Tu presencia es el mejor regalo, pero si deseas tener un detalle, agradezco que sea en efectivo.</p>
+      <!-- ÁLBUM DIGITAL -->
+      <section id="fotos" class="section fotos">
+        <div class="evento-card fotos-inner">
+          <h2 class="countdown-title">¡Hagamos los recuerdos inolvidables!</h2>
+          <h3 id="event-hashtag" class="fotos-hashtag">#misquincemiavalentina</h3>
+          <img id="qr-album" class="fotos-qr" alt="Código QR para álbum" src="images/QR.svg">
+          <p id="upload-description" class="dress-copy">¡Queremos ver las fotos de la mejor fiesta! Si tienes alguna foto que quieras compartir, por favor súbela aquí. ¡Gracias!</p>
+          <a id="upload-photos" class="btn-location" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1cJ7JQ-N8PfPS35Ss5FK5EcgFntzptaT5?usp=drive_link">Subir Fotos</a>
         </div>
       </section>
 
-      <section id="separador-h1" class="section separador-h1 fade-in-element" aria-label="Separador">
-        <img src="images/fotos/V6.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
-      </section>
+      <!-- BUENOS DESEOS -->
+      <section id="deseos" class="section deseos">
+        <div class="evento-card deseos-inner">
 
-      <section id="fotos" class="section fotos fade-in-element">
-        <div class="fotos-card">
-          <h3 class="fotos-title">¡Hagamos los recuerdos realidad!</h3>
-          <img class="fotos-qr" src="images/QRXV.svg" alt="QR para subir fotos y videos">
-          <p class="fotos-copy">Ayúdanos a inmortalizar este día tan especial, compartiendo con nosotros las fotos y videos que captures. Puedes hacerlo escaneando el QR o subiéndolas en el botón.</p>
-          <a class="btn-soft" href="https://drive.google.com/drive/folders/1dWgSgV3frl_pkQDEcomF9RL3Ts51d8Bb?usp=drive_link" target="_blank" rel="noopener">Subir Fotos</a>
-        </div>
-      </section>
+          <img class="rsvp-icono" src="images/BUENOSDESEOS.svg" alt="Buenos deseos">
 
-      <section id="deseos" class="section deseos fade-in-element">
-        <div class="regalos-card deseos-card">
-          <h3 class="regalos-title">Buenos deseos</h3>
-          <p class="regalos-copy">Déjanos un mensaje especial para recordar este día contigo.</p>
+          <h2 class="countdown-title">Buenos Deseos</h2>
+
+          <div class="hero-divider"></div>
+
+          <p class="dress-copy">
+            Déjanos un mensaje especial para recordar este día contigo.
+          </p>
 
           <div class="deseos-actions">
-            <button class="btn-soft" type="button" onclick="toggleWishForm()">Dejar mi deseo</button>
-            <button class="btn-soft" type="button" onclick="toggleWishes()">Ver mensajes</button>
+            <button class="btn-location" type="button" onclick="toggleWishForm()">
+              Dejar mi deseo
+            </button>
+            <button class="btn-location btn-outline" type="button" onclick="toggleWishes()">
+              Ver mensajes
+            </button>
           </div>
 
-          <div id="wish-form-panel" class="deseos-form-panel hidden" aria-label="Formulario de buenos deseos">
+          <div id="wish-form-panel" class="deseos-form-panel hidden">
             <form id="wish-form" class="deseos-form" onsubmit="return submitWish(event)">
-              <input id="wish-name" type="text" maxlength="60" placeholder="Tu nombre" required>
-              <textarea id="wish-message" rows="4" maxlength="280" placeholder="Escribe tu deseo" required></textarea>
-              <button class="btn-soft" type="submit">Enviar deseo</button>
+              <input id="wish-name" type="text" maxlength="60" 
+                     placeholder="Tu nombre" required>
+              <textarea id="wish-message" rows="4" maxlength="280" 
+                        placeholder="Escribe tu deseo" required></textarea>
+              <button class="btn-location" type="submit">Enviar deseo</button>
             </form>
           </div>
 
           <p id="wish-status" class="deseos-status" aria-live="polite"></p>
           <div id="wishes" class="deseos-list" aria-live="polite"></div>
+
         </div>
       </section>
 
-      <section id="separador-v2" class="section separador-v2 fade-in-element" aria-label="Separador">
-        <img id="separador-v2-rotativo" src="images/fotos/V7.jpg" alt="Separador decorativo" data-parallax data-parallax-speed="0.024" data-parallax-max="14">
+      <!-- RSVP -->
+      <section id="rsvp-section" class="section rsvp">
+        <div class="evento-card rsvp-inner">
+
+          <img class="rsvp-icono" src="images/RSVP.svg" alt="Confirmación">
+
+          <h2 class="countdown-title">¡Es un placer invitarte!</h2>
+
+          <div class="hero-divider"></div>
+
+          <p id="nombre-rsvp" class="rsvp-nombre-invitado">Invitado Especial</p>
+          <p class="rsvp-pases">
+            Hemos reservado para ti 
+            <span id="rsvp-lugares" class="rsvp-pases-numero">2</span> 
+            lugares especiales
+          </p>
+
+          <p class="rsvp-intro dress-copy">
+            Confirma tu asistencia antes del 15 de julio.
+          </p>
+
+          <form id="rsvp-form" novalidate>
+            <input id="rsvp-name" type="hidden" name="rsvp-name">
+            <button id="rsvp-submit" type="submit" class="btn-location">
+              Confirmar asistencia
+            </button>
+          </form>
+
+          <div id="rsvp-success" style="display:none;">
+            <p id="rsvp-final-message"></p>
+          </div>
+
+        </div>
       </section>
 
-      <section class="section frase-final zoom-in-element">
-          <p class="frase-final-title">Tu presencia es el mejor regalo. Nos sentimos bendecidos de compartir este día tan especial contigo.</p>
+      <section id="frase-final" class="section frase-final">
+        <p id="final-message" class="frase-final-texto">
+          ¡Gracias por ser parte de este día tan especial!
+        </p>
       </section>
     </main>
 
-    <footer id="footer" class="footer visible" style="--reveal-order: 3;">
+    <footer id="footer" class="footer">
       <div id="social-icons">
-        <a href="https://wa.me/50236011737" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <a href="https://wa.me/50236011737" target="_blank" rel="noopener" aria-label="Whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://facebook.com/rociofernandoboda" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://facebook.com/thetwodesign" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fab fa-facebook"></i>
         </a>
-        <a href="https://instagram.com/rocio.fernando.boda" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://instagram.com/thetwodesign" target="_blank" rel="noopener" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
-
       <div class="footer-logo">
-        <img id="footer-logo" alt="Logo de la empresa" src="images/logo.png">
+        <img id="footer-logo" alt="Logo Two Design" src="images/logo.png">
       </div>
     </footer>
   </div>
@@ -267,5 +278,132 @@
   <script src="config.js?v=20260519a"></script>
   <script type="module" src="database.js?v=20260519a"></script>
   <script src="script.js?v=20260519a"></script>
+  <script>
+(function() {
+  const canvas = document.getElementById('sparkles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const COLORS = [
+    'rgba(240, 208, 128, ',
+    'rgba(201, 160, 76, ',
+    'rgba(232, 196, 160, ',
+    'rgba(255, 235, 180, ',
+    'rgba(253, 246, 250, '
+  ];
+
+  let particles = [];
+  let animFrame;
+  let W = 0;
+  let H = 0;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = document.getElementById('invitacion').scrollHeight || window.innerHeight;
+  }
+
+  function randomBetween(a, b) {
+    return a + Math.random() * (b - a);
+  }
+
+  function createParticle() {
+    return {
+      x:        randomBetween(0, W),
+      y:        randomBetween(0, H),
+      size:     randomBetween(1.5, 3.5),
+      opacity:  0,
+      maxOpacity: randomBetween(0.5, 1),
+      speed:    randomBetween(0.008, 0.022),
+      phase:    randomBetween(0, Math.PI * 2),
+      color:    COLORS[Math.floor(Math.random() * COLORS.length)],
+      twinkle:  randomBetween(0.4, 1.2)
+    };
+  }
+
+  function initParticles(count) {
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      const p = createParticle();
+      p.phase = randomBetween(0, Math.PI * 2);
+      particles.push(p);
+    }
+  }
+
+  function drawStar(x, y, size, opacity, color) {
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.fillStyle = color + opacity + ')';
+    ctx.shadowBlur = size * 3;
+    ctx.shadowColor = color + '0.6)';
+
+    ctx.beginPath();
+    for (let i = 0; i < 4; i++) {
+      const angle = (i / 4) * Math.PI * 2;
+      const outerX = x + Math.cos(angle) * size;
+      const outerY = y + Math.sin(angle) * size;
+      const innerX = x + Math.cos(angle + Math.PI / 4) * (size * 0.3);
+      const innerY = y + Math.sin(angle + Math.PI / 4) * (size * 0.3);
+      if (i === 0) {
+        ctx.moveTo(outerX, outerY);
+      } else {
+        ctx.lineTo(innerX, innerY);
+        ctx.lineTo(outerX, outerY);
+      }
+      ctx.lineTo(innerX, innerY);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  let lastTime = 0;
+  function animate(timestamp) {
+    const delta = timestamp - lastTime;
+    lastTime = timestamp;
+
+    ctx.clearRect(0, 0, W, H);
+
+    particles.forEach(p => {
+      p.phase += p.speed * (delta / 16);
+      p.opacity = p.maxOpacity * Math.abs(Math.sin(p.phase * p.twinkle));
+      drawStar(p.x, p.y, p.size, p.opacity, p.color);
+    });
+
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  function start() {
+    resize();
+    const count = Math.floor((W * H) / 14000);
+    initParticles(Math.min(Math.max(count, 60), 180));
+    if (animFrame) cancelAnimationFrame(animFrame);
+    animate(0);
+  }
+
+  // Solo corre cuando la invitacion es visible
+  const invitacion = document.getElementById('invitacion');
+  const observer = new MutationObserver(function() {
+    const visible = invitacion && 
+      invitacion.style.display !== 'none' && 
+      invitacion.classList.contains('revelar');
+    if (visible) {
+      start();
+      observer.disconnect();
+    }
+  });
+
+  if (invitacion) {
+    observer.observe(invitacion, { 
+      attributes: true, 
+      attributeFilter: ['class', 'style'] 
+    });
+  }
+
+  window.addEventListener('resize', function() {
+    resize();
+    initParticles(Math.min(Math.max(Math.floor((W * H) / 14000), 60), 180));
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>

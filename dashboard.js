@@ -9,7 +9,7 @@ const guestDirectorySeed = {
 };
 
 const guestDirectoriesByEvent = {
-    "misxv-anika-fernanda-2026": guestDirectorySeed
+    "misxv-mia-valentina-2026": guestDirectorySeed
 };
 
 window.LocalGuestSeeds = {
@@ -22,8 +22,8 @@ const VALID_FILTERS = new Set(["todos", "si", "no", "pendiente"]);
 function resolveDashboardEventContext() {
     const externalConfig = window.config || {};
     const eventConfig = externalConfig.event || {};
-    const eventIdParam = String(eventConfig.eventIdParam || "eventId").trim() || "eventId";
-    const defaultEventId = String(eventConfig.defaultEventId || "misxv-anika-fernanda-2026").trim() || "misxv-anika-fernanda-2026";
+    const eventIdParam = String(eventConfig.eventIdParam || "id").trim() || "id";
+    const defaultEventId = String(eventConfig.defaultEventId || "misxv-mia-valentina-2026").trim() || "misxv-mia-valentina-2026";
     const params = new URLSearchParams(window.location.search || "");
     const fromQuery = String(params.get(eventIdParam) || "").trim();
     const fromWindow = String(

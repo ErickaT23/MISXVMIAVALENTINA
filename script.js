@@ -21,8 +21,8 @@ const externalConfig = window.config || {};
 
 function resolveEventId() {
     const eventConfig = externalConfig.event || {};
-    const eventIdParam = String(eventConfig.eventIdParam || 'eventId').trim() || 'eventId';
-    const defaultEventId = String(eventConfig.defaultEventId || 'misxv-anika-fernanda-2026').trim() || 'misxv-anika-fernanda-2026';
+    const eventIdParam = String(eventConfig.eventIdParam || 'id').trim() || 'id';
+    const defaultEventId = String(eventConfig.defaultEventId || 'misxv-mia-valentina-2026').trim() || 'misxv-mia-valentina-2026';
     const params = new URLSearchParams(window.location.search || '');
     const paramValue = String(params.get(eventIdParam) || '').trim();
     const eventId = paramValue || defaultEventId;
@@ -74,18 +74,18 @@ function createSiteConfig(remoteConfig) {
 
     return {
         seo: {
-            titulo: 'Anika Fernanda | Mis XV 2026',
-            descripcion: 'Mis Quince Años de Anika Fernanda - 12 de diciembre, 2026',
+            titulo: 'Mía Valentina | Mis XV 2026',
+            descripcion: 'Mis Quince Años de Mía Valentina - 1 de agosto, 2026',
             autor: 'Two Design',
             ...externalConfig.seo,
             ...normalizedRemoteConfig.seo
         },
         pareja: {
-            nombres: 'Anika Fernanda',
-            fecha: '12-12-2026',
-            fechaVisible: '12.12.2026',
-            ...externalConfig.pareja,
-            ...normalizedRemoteConfig.pareja
+            nombres: 'Mía Valentina',
+            fecha: '01-08-2026',
+            fechaVisible: '1 · 08 · 2026',
+            ...normalizedRemoteConfig.pareja,
+            ...externalConfig.pareja
         },
         musica: {
             titulo: 'Nuestra Canción',
@@ -96,19 +96,19 @@ function createSiteConfig(remoteConfig) {
         evento: {
             ceremonia: {
                 titulo: 'Ceremonia',
-                lugar: 'Iglesia Catedral',
-                hora: '17:00 hrs',
-                direccion: 'Quetzaltenango',
-                ubicacionUrl: 'https://maps.app.goo.gl/UR8YG5dqu9fzo5NeA',
+                lugar: 'Iglesia Católica San José',
+                hora: '5:00 PM',
+                direccion: 'Morales, Izabal',
+                ubicacionUrl: 'https://maps.google.com/?q=15.476117,-88.828629',
                 ...(localEvento.ceremonia || {}),
                 ...(remoteEvento.ceremonia || {})
             },
             recepcion: {
                 titulo: 'Recepción',
-                lugar: 'Restaurante Don Carlos',
-                hora: '19:00 hrs',
-                direccion: 'Circunvalación Salcajá',
-                ubicacionUrl: 'https://maps.app.goo.gl/AHz7RSJHoNs1GPiV7',
+                lugar: 'Salón Palmeras',
+                hora: '6:30 PM',
+                direccion: 'Morales, Izabal',
+                ubicacionUrl: 'https://maps.app.goo.gl/w1bEQT8YfcrjTxfCA',
                 ...(localEvento.recepcion || {}),
                 ...(remoteEvento.recepcion || {})
             }
@@ -120,9 +120,9 @@ function createSiteConfig(remoteConfig) {
             ...normalizedRemoteConfig.textos
         },
         footer: {
-            hashtag: '#MisXVAnikaFernanda',
-            instagramUrl: 'https://instagram.com/rocio.fernando.boda',
-            facebookUrl: 'https://facebook.com/rociofernandoboda',
+            hashtag: '#misquincemiavalentina',
+            instagramUrl: 'https://instagram.com/thetwodesign',
+            facebookUrl: 'https://facebook.com/thetwodesign',
             marcaTexto: 'Diseño',
             marcaNombre: 'Two Design',
             marcaUrl: 'https://twodesign.com',
@@ -323,9 +323,15 @@ const InvitadoApp = {
 
     renderSection() {
         const nombreEl = document.getElementById('nombre-invitado');
+        const lugaresNumeroEl = document.getElementById('numero-lugares');
+        const nombreRsvpEl = document.getElementById('nombre-rsvp');
+        const lugaresRsvpEl = document.getElementById('rsvp-lugares');
 
         if (nombreEl) nombreEl.textContent = this.data.nombre;
         const displayPases = String(this.data && this.data.id || '') === '3B' ? 1 : this.data.pases;
+        if (lugaresNumeroEl) lugaresNumeroEl.textContent = displayPases;
+        if (nombreRsvpEl) nombreRsvpEl.textContent = this.data.nombre;
+        if (lugaresRsvpEl) lugaresRsvpEl.textContent = displayPases;
         this.renderPasesText(displayPases);
     },
 
@@ -634,7 +640,7 @@ function getEventDateFromConfig() {
         }
     }
 
-    return new Date('2026-12-12T00:00:00').getTime();
+    return new Date('2026-08-01T00:00:00').getTime();
 }
 
 function initRotatingSeparator() {
@@ -709,6 +715,26 @@ function initAutoGallery() {
 
     render(currentIndex);
     startAutoplay();
+}
+
+function sendWhatsAppNotification(respuesta, nombre, pasesAsignados, cantidadConfirmada) {
+    const numero = '50247505315';
+    const respuestaTexto = respuesta === 'si' ? 'SÍ asistirá' : 'NO asistirá';
+    const pasesTexto = respuesta === 'si'
+        ? '\nCantidad confirmada: ' + cantidadConfirmada + ' de ' + pasesAsignados + ' pases'
+        : '';
+
+    const mensaje = 
+        '✉️ *Confirmación de asistencia*\n' +
+        '━━━━━━━━━━━━━━━━━━\n' +
+        '*Evento:* Mis XV Mía Valentina\n' +
+        '*Invitado:* ' + nombre + '\n' +
+        '*Respuesta:* ' + respuestaTexto +
+        pasesTexto + '\n' +
+        '━━━━━━━━━━━━━━━━━━';
+
+    const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensaje);
+    window.open(url, '_blank');
 }
 
 function initRSVP() {
@@ -1003,6 +1029,7 @@ function initRSVP() {
             const savedRecord = await saveConfirmation(payload);
             applyConfirmedState(savedRecord);
             showResultPopup(confirmationMessages[respuesta]);
+            sendWhatsAppNotification(respuesta, payload.nombre, payload.pasesAsignados, payload.cantidadConfirmada);
         } catch (error) {
             if (error && (error.code === 'RSVP_ALREADY_CONFIRMED' || error.code === 'RSVP_ALREADY_CONFIRMED_DEVICE')) {
                 const existingRecord = (error.existingData && error.existingData.confirmado)

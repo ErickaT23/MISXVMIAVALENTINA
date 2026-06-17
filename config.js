@@ -1,67 +1,59 @@
 const config = {
     event: {
-        defaultEventId: "misxv-anika-fernanda-2026",
-        eventIdParam: "eventId",
+        defaultEventId: "misxv-mia-valentina-2026",
+        eventIdParam: "id",
         legacyFallback: {
             read: false,
             write: false,
             subscribe: false
         }
     },
-
     admin: {
         adminKey: "twodesign123",
         keyParam: "key",
         legacyKeyParam: "admin"
     },
-
     seo: {
-        titulo: "Anika Fernanda | Mis XV 2026",
-        descripcion: "Mis Quince Años de Anika Fernanda - 12 de diciembre, 2026",
+        titulo: "Mía Valentina | Mis XV 2026",
+        descripcion: "Mis Quince Años de Mía Valentina - 1 de agosto, 2026",
         autor: "Two Design"
     },
-
     pareja: {
-        nombres: "Anika Fernanda",
-        fecha: "12-12-2026",
-        fechaVisible: "12.12.2026"
+        nombres: "Mía Valentina",
+        fecha: "01-08-2026",
+        fechaVisible: "1 · 08 · 2026"
     },
-
     musica: {
         titulo: "Nuestra Canción",
         archivo: "audio/nuestra-cancion.mp3"
     },
-
     evento: {
         ceremonia: {
             titulo: "Ceremonia",
-            lugar: "Iglesia Catedral",
+            lugar: "Iglesia Católica San José",
             hora: "5:00 PM",
-            direccion: "Quetzaltenango",
-            ubicacionUrl: "https://maps.app.goo.gl/UR8YG5dqu9fzo5NeA"
+            direccion: "Morales, Izabal",
+            ubicacionUrl: "https://maps.google.com/?q=15.476117,-88.828629"
         },
         recepcion: {
             titulo: "Recepción",
-            lugar: "Restaurante Don Carlos",
-            hora: "7:00 PM",
-            direccion: "Circunvalación Salcajá",
-            ubicacionUrl: "https://maps.app.goo.gl/AHz7RSJHoNs1GPiV7"
+            lugar: "Salón Palmeras",
+            hora: "6:30 PM",
+            direccion: "Morales, Izabal",
+            ubicacionUrl: "https://maps.app.goo.gl/w1bEQT8YfcrjTxfCA"
         }
     },
-
     textos: {
         mensajeInvitado: "Eres muy especial para nosotros",
         mensajePases: "Hemos reservado para ti {pases} lugares especiales"
     },
-
     footer: {
-        hashtag: "#MisXVAnikaFernanda",
-        instagramUrl: "https://instagram.com/rocio.fernando.boda",
-        facebookUrl: "https://facebook.com/rociofernandoboda",
+        hashtag: "#misquincemiavalentina",
+        instagramUrl: "https://instagram.com/thetwodesign",
+        facebookUrl: "https://facebook.com/thetwodesign",
         marcaTexto: "Diseño",
         marcaNombre: "Two Design",
-        marcaUrl: "https://twodesign.com"
+        marcaUrl: "https://thetwodesign.com"
     }
 };
-
 window.config = config;
