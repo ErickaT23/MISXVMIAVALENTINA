@@ -1408,6 +1408,20 @@
         }
     }
 
+    async function ensureGuestListSeeded(db) {
+        if (!db || typeof db.getInvitados !== "function" || typeof db.seedEventData !== "function") {
+            return;
+        }
+
+        const invitados = await db.getInvitados(state.eventId);
+        if (Array.isArray(invitados) && invitados.length > 0) {
+            return;
+        }
+
+        setStatus("Cargando lista inicial de invitados...", false);
+        await db.seedEventData(state.eventId);
+    }
+
     async function init() {
         const query = getQueryParams();
         if (!isValidAdminKey(query.adminKey)) {
@@ -1435,6 +1449,7 @@
             }
 
             state.db = db;
+            await ensureGuestListSeeded(db);
             subscribeData(db);
         } catch (error) {
             console.error(error);
