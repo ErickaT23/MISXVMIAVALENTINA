@@ -1422,6 +1422,17 @@
         await db.seedEventData(state.eventId);
     }
 
+    async function migrateMisroutedConfirmations(db) {
+        if (!db || typeof db.migrateMisroutedRsvpToEvent !== "function") {
+            return;
+        }
+
+        const result = await db.migrateMisroutedRsvpToEvent(state.eventId, { maxGuestId: 120 });
+        if (result && Number(result.total) > 0) {
+            setStatus("Confirmaciones migradas al evento correcto: " + result.total, false);
+        }
+    }
+
     async function init() {
         const query = getQueryParams();
         if (!isValidAdminKey(query.adminKey)) {
@@ -1450,6 +1461,7 @@
 
             state.db = db;
             await ensureGuestListSeeded(db);
+            await migrateMisroutedConfirmations(db);
             subscribeData(db);
         } catch (error) {
             console.error(error);

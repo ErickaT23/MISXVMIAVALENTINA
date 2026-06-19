@@ -1282,6 +1282,34 @@ async function migrateLocalGuestsToFirebase(arg1, arg2, arg3) {
   };
 }
 
+async function migrateMisroutedRsvpToEvent(arg1, arg2) {
+  const eventId = resolveEventId(arg1);
+  const options = arg2 && typeof arg2 === "object" ? arg2 : {};
+  const maxGuestId = Math.max(1, Number(options.maxGuestId) || 120);
+  const migrated = [];
+
+  for (let idNumber = 1; idNumber <= maxGuestId; idNumber += 1) {
+    const guestId = String(idNumber);
+    if (guestId === eventId) continue;
+
+    const sourceSnapshot = await get(getEventRsvpRef(guestId, guestId));
+    if (!sourceSnapshot.exists()) continue;
+
+    const targetSnapshot = await get(getEventRsvpRef(eventId, guestId));
+    if (targetSnapshot.exists()) continue;
+
+    await set(getEventRsvpRef(eventId, guestId), sourceSnapshot.val());
+    migrated.push(guestId);
+  }
+
+  return {
+    ok: true,
+    eventId,
+    migrated,
+    total: migrated.length
+  };
+}
+
 function clearGuestsMigrationMark(eventId) {
   const storageKey = getGuestsSeedStorageKey(eventId);
   removeLocalStorage(storageKey);
@@ -1777,6 +1805,7 @@ window.RSVPDatabase = {
   updateInvitado,
   deleteInvitado,
   migrateLocalGuestsToFirebase,
+  migrateMisroutedRsvpToEvent,
   clearGuestsMigrationMark,
   seedEventConfigToFirebase,
   seedEventData,
@@ -1788,6 +1817,7 @@ window.RSVPDatabase = {
 };
 
 window.migrateLocalGuestsToFirebase = migrateLocalGuestsToFirebase;
+window.migrateMisroutedRsvpToEvent = migrateMisroutedRsvpToEvent;
 window.clearGuestsMigrationMark = clearGuestsMigrationMark;
 window.seedEventConfigToFirebase = seedEventConfigToFirebase;
 window.seedEventData = seedEventData;
@@ -1822,6 +1852,7 @@ export {
   updateInvitado,
   deleteInvitado,
   migrateLocalGuestsToFirebase,
+  migrateMisroutedRsvpToEvent,
   clearGuestsMigrationMark,
   seedEventConfigToFirebase,
   seedEventData,
