@@ -1,7 +1,7 @@
 const config = {
     event: {
         defaultEventId: "misxv-mia-valentina-2026",
-        eventIdParam: "id",
+        eventIdParam: "eventId",
         legacyFallback: {
             read: false,
             write: false,
