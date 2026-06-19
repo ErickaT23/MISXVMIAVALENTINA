@@ -1250,6 +1250,10 @@ async function migrateLocalGuestsToFirebase(arg1, arg2, arg3) {
   }
 
   if (!dryRun) {
+    if (force) {
+      await set(ref(db, getEventInvitadosPath(eventId)), {});
+    }
+
     await Promise.all(
       guests.map(function (guest) {
         const guestId = sanitizeFirebaseKey(guest.id);
@@ -1343,11 +1347,76 @@ async function seedEventData(arg1, arg2) {
   const force = Boolean(options.force);
 
   const sampleGuests = {
-    "1": { id: "1", nombre: "Valeria Soto", pases: 2, activo: true },
-    "2": { id: "2", nombre: "Diego Marín", pases: 4, activo: true },
-    "3": { id: "3", nombre: "Camila Rivas", pases: 3, activo: true },
-    "4": { id: "4", nombre: "Javier Ponce", pases: 1, activo: true },
-    "5": { id: "5", nombre: "Lucía Herrera", pases: 2, activo: true }
+    "1": { id: "1", nombre: "Fam. Sagastume Palma", pases: 3, activo: true },
+    "2": { id: "2", nombre: "Aida Cordón", pases: 1, activo: true },
+    "3": { id: "3", nombre: "Fam. Sagastume Buezo", pases: 3, activo: true },
+    "4": { id: "4", nombre: "Fam. Sagastume Carles", pases: 4, activo: true },
+    "5": { id: "5", nombre: "Fam. Sagastume Chacón", pases: 4, activo: true },
+    "6": { id: "6", nombre: "Lolita Sagastume", pases: 1, activo: true },
+    "7": { id: "7", nombre: "Fam. Saguill Peña", pases: 5, activo: true },
+    "8": { id: "8", nombre: "Fam. Duarte Sandoval", pases: 3, activo: true },
+    "9": { id: "9", nombre: "Fam. Acevedo Carpio", pases: 4, activo: true },
+    "10": { id: "10", nombre: "Carla de Acevedo", pases: 1, activo: true },
+    "11": { id: "11", nombre: "Rosita Menéndez", pases: 2, activo: true },
+    "12": { id: "12", nombre: "Marilena Menéndez", pases: 2, activo: true },
+    "13": { id: "13", nombre: "Fam. Cardenas Gómez", pases: 5, activo: true },
+    "14": { id: "14", nombre: "Fam. Contreras Gómez", pases: 4, activo: true },
+    "15": { id: "15", nombre: "Gaser Menéndez", pases: 4, activo: true },
+    "16": { id: "16", nombre: "Hugo Contreras", pases: 1, activo: true },
+    "17": { id: "17", nombre: "Margie Contreras", pases: 1, activo: true },
+    "18": { id: "18", nombre: "Marleny Duarte", pases: 1, activo: true },
+    "19": { id: "19", nombre: "Victoria Chajón", pases: 1, activo: true },
+    "20": { id: "20", nombre: "Gabriela Pérez", pases: 1, activo: true },
+    "21": { id: "21", nombre: "Gisselle Alvarenga", pases: 1, activo: true },
+    "22": { id: "22", nombre: "Yureyli Valencia", pases: 1, activo: true },
+    "23": { id: "23", nombre: "Jenifer Barrera", pases: 1, activo: true },
+    "24": { id: "24", nombre: "Gricel Hernández", pases: 1, activo: true },
+    "25": { id: "25", nombre: "Saida Ramos", pases: 1, activo: true },
+    "26": { id: "26", nombre: "Xiomara Gómez", pases: 1, activo: true },
+    "27": { id: "27", nombre: "Marcela Chamalé", pases: 1, activo: true },
+    "28": { id: "28", nombre: "Marielita Aceituno", pases: 1, activo: true },
+    "29": { id: "29", nombre: "Fam. Chacón Menéndez", pases: 3, activo: true },
+    "30": { id: "30", nombre: "Paul Chacón", pases: 2, activo: true },
+    "31": { id: "31", nombre: "Selina Sandoval", pases: 2, activo: true },
+    "32": { id: "32", nombre: "Gustavo Sandoval", pases: 2, activo: true },
+    "33": { id: "33", nombre: "Personal Colegio Jireh J.M.", pases: 13, activo: true },
+    "34": { id: "34", nombre: "Compañeras 20 de Octubre", pases: 7, activo: true },
+    "35": { id: "35", nombre: "Dana Moscoso", pases: 1, activo: true },
+    "36": { id: "36", nombre: "Rebeca James", pases: 1, activo: true },
+    "37": { id: "37", nombre: "Analía García", pases: 1, activo: true },
+    "38": { id: "38", nombre: "Angie Castellanos", pases: 1, activo: true },
+    "39": { id: "39", nombre: "María José y Derek Cu Navas", pases: 2, activo: true },
+    "40": { id: "40", nombre: "Susan Portillo", pases: 1, activo: true },
+    "41": { id: "41", nombre: "Allison García", pases: 1, activo: true },
+    "42": { id: "42", nombre: "Angel Acevedo", pases: 1, activo: true },
+    "43": { id: "43", nombre: "César García", pases: 1, activo: true },
+    "44": { id: "44", nombre: "Lucía Bardales", pases: 1, activo: true },
+    "45": { id: "45", nombre: "Valentina Mijancos", pases: 1, activo: true },
+    "46": { id: "46", nombre: "Keyrin Hernández", pases: 1, activo: true },
+    "47": { id: "47", nombre: "Justin Varela", pases: 1, activo: true },
+    "48": { id: "48", nombre: "Brandon Salazar", pases: 1, activo: true },
+    "49": { id: "49", nombre: "Camila Espino", pases: 1, activo: true },
+    "50": { id: "50", nombre: "Lilibeth Acevedo", pases: 1, activo: true },
+    "51": { id: "51", nombre: "Victoira Ventura", pases: 1, activo: true },
+    "52": { id: "52", nombre: "Danitza y Zaylin Gáldamez", pases: 2, activo: true },
+    "53": { id: "53", nombre: "Melanie y Noemí Loyo", pases: 2, activo: true },
+    "54": { id: "54", nombre: "Ilianita De Paz", pases: 1, activo: true },
+    "55": { id: "55", nombre: "Damaris Coronado", pases: 1, activo: true },
+    "56": { id: "56", nombre: "Justin Varela", pases: 1, activo: true },
+    "57": { id: "57", nombre: "Brandon Salazar", pases: 1, activo: true },
+    "58": { id: "58", nombre: "Nicol Orellana", pases: 1, activo: true },
+    "59": { id: "59", nombre: "Eduard Peña", pases: 1, activo: true },
+    "60": { id: "60", nombre: "Antonio Ramírez", pases: 1, activo: true },
+    "61": { id: "61", nombre: "José Carlos Godoy", pases: 1, activo: true },
+    "62": { id: "62", nombre: "Ivanna Vargas", pases: 1, activo: true },
+    "63": { id: "63", nombre: "Anderson Medina", pases: 1, activo: true },
+    "64": { id: "64", nombre: "Olman Ramírez", pases: 1, activo: true },
+    "65": { id: "65", nombre: "Ian Orellana", pases: 1, activo: true },
+    "66": { id: "66", nombre: "Kimberly Soley Alvarado", pases: 1, activo: true },
+    "67": { id: "67", nombre: "Pedro Herrera", pases: 1, activo: true },
+    "68": { id: "68", nombre: "Ever Nájera", pases: 1, activo: true },
+    "69": { id: "69", nombre: "Fam. Acevedo Zúñiga", pases: 3, activo: true },
+    "70": { id: "70", nombre: "Albita y Mario Lima", pases: 2, activo: true }
   };
 
   const [rsvpSnapshot, wishesSnapshot] = await Promise.all([
@@ -1361,6 +1430,10 @@ async function seedEventData(arg1, arg2) {
 
   if (force || !wishesSnapshot.exists()) {
     await set(ref(db, getEventDeseosPath(eventId)), {});
+  }
+
+  if (force) {
+    await set(ref(db, getEventInvitadosPath(eventId)), {});
   }
 
   await Promise.all(
