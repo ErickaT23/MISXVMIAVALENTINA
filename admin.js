@@ -1422,15 +1422,19 @@
         await db.seedEventData(state.eventId);
     }
 
-    async function migrateMisroutedConfirmations(db) {
-        if (!db || typeof db.migrateMisroutedRsvpToEvent !== "function") {
+    async function loadInitialData(db) {
+        if (!db || typeof db.getAllConfirmations !== "function" || typeof db.getInvitados !== "function") {
             return;
         }
 
-        const result = await db.migrateMisroutedRsvpToEvent(state.eventId, { maxGuestId: 120 });
-        if (result && Number(result.total) > 0) {
-            setStatus("Confirmaciones migradas al evento correcto: " + result.total, false);
-        }
+        const [confirmations, invitados] = await Promise.all([
+            db.getAllConfirmations(state.eventId),
+            db.getInvitados(state.eventId)
+        ]);
+
+        state.confirmations = Array.isArray(confirmations) ? confirmations : [];
+        state.invitadosMap = mapInvitados(invitados);
+        refreshView();
     }
 
     async function init() {
@@ -1461,7 +1465,7 @@
 
             state.db = db;
             await ensureGuestListSeeded(db);
-            await migrateMisroutedConfirmations(db);
+            await loadInitialData(db);
             subscribeData(db);
         } catch (error) {
             console.error(error);

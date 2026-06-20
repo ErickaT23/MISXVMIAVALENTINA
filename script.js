@@ -1002,6 +1002,14 @@ function initRSVP() {
         setIntroMessageForConfirmed(true);
     }
 
+    function applyUnconfirmedState() {
+        if (successMessage) successMessage.style.display = 'none';
+        if (finalMessage) finalMessage.textContent = '';
+        setFormLocked(false);
+        setConfirmedFormVisibility(false);
+        setIntroMessageForConfirmed(false);
+    }
+
     async function getExistingConfirmation(guestId) {
         const rsvpDB = window.RSVPDatabase;
         if (!rsvpDB || typeof rsvpDB.getConfirmationByGuestId !== 'function') return null;
@@ -1062,6 +1070,30 @@ function initRSVP() {
     }
 
     checkConfirmedStatusOnLoad();
+
+    function subscribeToConfirmationStatus() {
+        if (previewMode) return;
+
+        const rsvpDB = window.RSVPDatabase;
+        if (!rsvpDB || typeof rsvpDB.subscribeToConfirmations !== 'function') return;
+
+        rsvpDB.subscribeToConfirmations(activeEventId, function(records) {
+            const existing = (Array.isArray(records) ? records : []).find(function(record) {
+                return String(record && (record.id || record._key) || '').trim() === guestId;
+            });
+
+            if (existing && existing.confirmado) {
+                applyConfirmedState(existing);
+                return;
+            }
+
+            applyUnconfirmedState();
+        }, function(error) {
+            console.warn('No se pudo sincronizar estado RSVP en tiempo real:', error);
+        });
+    }
+
+    subscribeToConfirmationStatus();
     
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
